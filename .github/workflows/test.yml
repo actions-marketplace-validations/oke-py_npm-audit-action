@@ -13,7 +13,7 @@ jobs:
         os: [ ubuntu-latest, macos-latest ]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - run: |
         npm ci
         npm run all
@@ -24,7 +24,7 @@ jobs:
   build-on-windows:
     runs-on: windows-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     # https://stackoverflow.com/questions/72401421/message-npm-warn-config-global-global-local-are-deprecated-use-loc
     - run: |
         npm install npm-windows-upgrade --location=global
@@ -43,7 +43,7 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: ./
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,7 +60,7 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     # https://stackoverflow.com/questions/72401421/message-npm-warn-config-global-global-local-are-deprecated-use-loc
     - run: |
         npm install npm-windows-upgrade --location=global
